@@ -1,5 +1,6 @@
 package com.lailyramadaniati.androidh211
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -22,11 +23,21 @@ class MainActivity : AppCompatActivity() {
 
         simpanButton.setOnClickListener{
             val nama = namaEditText.text.toString()
+            val email = emailEditText.text.toString()
+            val noHandphone = noHandphoneEditText.text.toString()
             var jarak = jarakEditText.text.toString().toInt()
-
             jarak = jarak * 1000
+            val tanggalLahir = tanggalLahirEditText.text.toString()
 
             Toast.makeText(this,"Hai $nama", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this,HasilActivity::class.java)
+            intent.putExtra("nama",nama)
+            intent.putExtra("email",email)
+            intent.putExtra("noHandphone",noHandphone)
+            intent.putExtra("jarak",jarak)
+            intent.putExtra("tanggalLahir",tanggalLahir)
+            startActivity(intent)
         }
 
         batalButton.setOnClickListener {
